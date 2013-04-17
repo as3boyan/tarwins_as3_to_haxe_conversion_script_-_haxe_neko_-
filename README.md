@@ -9,7 +9,7 @@ Ported to Haxe 3
 
 TODO:
 =====
-1.getters/setters
+1.Getters/Setters
 
 AS3:
 
@@ -128,8 +128,22 @@ To
 Change to:
 
     function test (params:Array<Dynamic>) {
- 
+    
     }
+    
+10.Final vars should be replaced with this tag 
 
+    @:final
+     
+11.Events meta tags like this
+ 
+AS3:
+
+    [Event(name="test",type="Foo")]
+
+To:
+
+    @:meta(Event(name="test",type="Foo"))
+    
 And should be checked other things and changed like in this article.
 http://www.nme.io/developer/guides/actionscript-developers/
