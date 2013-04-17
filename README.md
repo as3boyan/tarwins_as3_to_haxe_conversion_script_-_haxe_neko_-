@@ -67,7 +67,7 @@ for (i in 0...10)
 AS3 "is" like (1 is Int)
 Should be changed to Std.is(1, Int)
 
-6. Haxe doesn't support lower case imports like this:
+6.Haxe doesn't support lower case imports like this:
 
 import flash.utils.getQualifiedClassName;
 import flash.utils.getTimer
@@ -77,18 +77,18 @@ var a:int = getTimer();
 Should be changed to:
 var a:int = flash.utils.getTimer();
 
-7. Convert Vector to Array
+7.Convert Vector to Array
 
 Replace Vector with Array.
 
-8. Change Vector arrays initializations to Array
+8.Change Vector arrays initializations to Array
 AS3 code like this:
 var a:Vector.<MyClass> = new <MyClass> [new MyClass()];
 To
 var a:Array<MyClass> = new Array<MyClass>();
 a.push(new MyClass());
 
-9. Replace those dynamic params
+9.Replace those dynamic params
 
 function test (...params):void {
 	
