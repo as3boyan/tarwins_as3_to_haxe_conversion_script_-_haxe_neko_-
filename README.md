@@ -86,10 +86,12 @@ Should be changed to
 6.Haxe doesn't support lower case imports like this:
 
     import flash.utils.getQualifiedClassName;
-    import flash.utils.getTimer
-    import flash.utils.setTimeout
+    import flash.utils.getTimer;
+    import flash.utils.setTimeout;
     
-So convertor should remove imports and put in code these strings:
+So convertor should remove imports and put in code those strings, like in this example:
+
+AS3:
 
     var a:int = getTimer();
     
@@ -125,7 +127,7 @@ To
 
 Change to:
 
-    function test (params:Array[Dynamic]) {
+    function test (params:Array<Dynamic>) {
  
     }
 
