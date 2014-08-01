@@ -121,7 +121,10 @@ class As3ToHaxe
 		var hasVectors = (quickRegM(s, "Vector([ ]*)\\.([ ]*)<([ ]*)([^>]*)([ ]*)>").length != 0);
 
 		// package
-		s = quickRegR(s, "package ([a-zA-Z\\.0-9-_]*)([ \n\r]*){", "package $1;\n", "gs");
+		var r = new EReg("package ([a-zA-Z\\.0-9-_]*)([ \n\r]*){", "gs");
+		r.match(s);
+		s = r.replace(s, "package " + r.matched(1).toLowerCase() + ";\n");
+
 		// remove last 
 		s = quickRegR(s, "\\}([\n\r\t ]*)\\}([\n\r\t ]*)$", "}", "gs");
 
