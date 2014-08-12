@@ -131,6 +131,13 @@ class As3ToHaxe
 		// extra indentation
 		s = quickRegR(s, "\n\t", "\n");
 		
+		// import path
+		r = new EReg("import ([a-zA-Z0-9.]*)([A-Z])([a-zA-Z0-9]*\\.)", "");
+		while(r.match(s)){
+			trace(r.matched(0));
+			s = r.replace(s, "import " + r.matched(1) + r.matched(2).toLowerCase() + r.matched(3));
+		}
+		
 		// class
 		s = quickRegR(s, "public class", "class");
 
