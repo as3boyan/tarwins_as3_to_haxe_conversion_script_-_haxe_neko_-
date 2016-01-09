@@ -125,15 +125,10 @@ class As3ToHaxe
 
 		// package
 		var r = new EReg("package ([a-zA-Z\\.0-9-_]*)([ \n\r]*){", "gs");
-		r.match(s);
 		
-		try
+		if ( r.match(s) )
 		{
 			s = r.replace(s, "package " + r.matched(1).toLowerCase() + ";\n");
-		}
-		catch ( e:Dynamic )
-		{
-			// no package found so bypass
 		}
 
 		// remove last 
