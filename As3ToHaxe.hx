@@ -111,6 +111,9 @@ class As3ToHaxe
 		
 		var s = sys.io.File.getContent(fromFile);
 		
+		trace("Parsing: " + fromFile);
+		
+		
 		// spacse to tabs
 		s = quickRegR(s, "    ", "\t");
 		// undent
@@ -122,8 +125,11 @@ class As3ToHaxe
 
 		// package
 		var r = new EReg("package ([a-zA-Z\\.0-9-_]*)([ \n\r]*){", "gs");
-		r.match(s);
-		s = r.replace(s, "package " + r.matched(1).toLowerCase() + ";\n");
+		
+		if ( r.match(s) )
+		{
+			s = r.replace(s, "package " + r.matched(1).toLowerCase() + ";\n");
+		}
 
 		// remove last 
 		s = quickRegR(s, "\\}([\n\r\t ]*)\\}([\n\r\t ]*)$", "}", "gs");
